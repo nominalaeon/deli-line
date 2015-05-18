@@ -1,0 +1,28 @@
+.social-share {
+  @extend .col-xs-12;
+  @extend .col-sm-6;
+  background: $grey;
+  text-align: center;
+  ul {
+    display: table;
+    margin: 0 auto;
+  }
+  li {
+    display: table-cell;
+  }
+  a {
+    background-color: transparent;
+    background-image: $social-sprite;
+    background-position: $social-sprite-startPos 0;
+    background-repeat: no-repeat;
+    display: block;
+    text-indent: -9999px;
+    margin: 0 15px 30px 15px;
+    @include square($social-sprite-size);
+    @include social-sprite($social-list, $social-sprite-startPos, $social-sprite-size);
+    @media (max-width: $screen-xs-max) {
+      @include square($social-sprite-size-sm);
+      @include social-sprite($social-list, $social-sprite-startPos-sm, $social-sprite-size-sm);
+    }
+  }
+}

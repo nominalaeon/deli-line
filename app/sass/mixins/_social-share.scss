@@ -1,0 +1,57 @@
+/*
+ * SOCIAL LINKS SPRITES
+ * social-sprite default: light gray, hover white
+ */
+@mixin social-sprite($list, $startingPosition, $size) {
+  @for $index from 1 through length($list) {
+    $item: nth($list, $index);
+    $index: $index - 1; //sass starts index at 1
+    $leftPosition: $startingPosition + ($size * $index);
+    $topPosition: $size;
+    &.#{$item} {
+      @include social-sprite__position($leftPosition, $topPosition);
+    }
+  }
+}
+@mixin social-sprite__position($left, $top){
+  background-position: (-$left) ((-$top) * 3);
+  &:hover{
+    background-position: (-$left) 0;
+  }
+}
+// social-sprite--dark-medium: dark gray, hover medium gray
+@mixin social-sprite--dark-medium($list, $startingPosition, $size) {
+  @for $index from 1 through length($list) {
+    $item: nth($list, $index);
+    $index: $index - 1; //sass starts index at 1
+    $leftPosition: $startingPosition + ($size * $index);
+    $topPosition: $size;
+    &.#{$item} {
+      @include social-sprite__position--dark-medium($leftPosition, $topPosition);
+    }
+  }
+}
+@mixin social-sprite__position--dark-medium($left, $top) {
+  background-position: (-$left) ((-$top) * 2);
+  &:hover{
+    background-position: (-$left) ((-$top) * 3);
+  }
+}
+// social-sprite--gray-white: light gray, hover white
+@mixin social-sprite--dark-white($list, $startingPosition, $size) {
+  @for $index from 1 through length($list) {
+    $item: nth($list, $index);
+    $index: $index - 1; //sass starts index at 1
+    $leftPosition: $startingPosition + ($size * $index);
+    $topPosition: $size;
+    &.#{$item} {
+      @include social-sprite__position--dark-white($leftPosition, $topPosition);
+    }
+  }
+}
+@mixin social-sprite__position--dark-white($left, $top) {
+  background-position: (-$left) ((-$top) * 2);
+  &:hover{
+    background-position: (-$left) ((-$top) * 3);
+  }
+}

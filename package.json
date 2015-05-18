@@ -1,0 +1,46 @@
+{
+  "name": "deli Line",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "",
+  "author": {
+    "name": "Noah Rodenbeek",
+    "email": "noah@drawnbymouse.com",
+    "url": "rodenbeek.com"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-assemble": "^0.3.1",
+    "grunt-autoprefixer": "^3.0.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-compass": "^1.0.2",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-contrib-imagemin": "^0.3.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-sass": "git+https://github.com/gruntjs/grunt-contrib-sass.git#e85ee70ccb8839867172b57ca1378293291f8037",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-spell": "^0.2.1",
+    "grunt-wiredep": "^2.0.0",
+    "handlebars-helper-partial": "^0.2.0",
+    "load-grunt-tasks": "~0.1.0"
+  },
+  "devDependencies": {
+    
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "navPages": [
+    {
+      "name": "Home",
+      "url": "index.html",
+      "children": {}
+    }
+  ],
+
+  "navUtils": [
+    {
+      "name": "About",
+      "url": "about.html",
+      "children": {},
+      "external": false
+    }
+  ]
+}
