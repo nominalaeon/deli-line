@@ -170,6 +170,14 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.registerTask('default', [
+    'assemble',
+    'compass',
+    'concat',
+    'connect:server',
+    'watch'
+  ]);
+
   grunt.registerTask('serve', [
     'assemble',
     'compass',

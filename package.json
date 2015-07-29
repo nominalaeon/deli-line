@@ -1,10 +1,10 @@
 {
-  "name": "deli Line",
+  "name": "deliLine",
   "version": "0.0.0",
   "description": "",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "",
+  "repository": "https://github.com/nominalaeon/deli-line",
   "author": {
     "name": "Noah Rodenbeek",
     "email": "noah@drawnbymouse.com",
@@ -17,9 +17,13 @@
     "app"
   ],
   "keywords": [
-    ""
+    "frenchDip",
+    "frenchDipjs"
   ],
   "dependencies": {
+    
+  },
+  "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-assemble": "^0.3.1",
     "grunt-autoprefixer": "^3.0.0",
@@ -39,8 +43,5 @@
     "grunt-wiredep": "^2.0.0",
     "handlebars-helper-partial": "^0.2.0",
     "load-grunt-tasks": "~0.1.0"
-  },
-  "devDependencies": {
-    
   }
 }
