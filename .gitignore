@@ -2,6 +2,7 @@
 *.sublime-workspace
 
 app/vendor
+htdocs
 node_modules
 
 _STUFF

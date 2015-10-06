@@ -6,8 +6,6 @@
     "jquery.easing": "~1.3.1",
     "modernizr": "~2.8.3",
     "normalize-css": "~3.0.2",
-    "bootstrap-sass-official": "~3.3.1",
-    "bootstrap-select": "~1.6.4",
     "eventEmitter": "~4.2.11",
     "eventie": "~1.0.6",
     "hammerjs": "~2.0.4",

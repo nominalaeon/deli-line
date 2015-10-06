@@ -3,8 +3,7 @@
 @import "variables/social-share";
 
 // Vendor
-@import "variables/bootstrap-overrides";
-@import "../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "vendor/bootstrap";
 
 // Mixins
 @import "mixins/colors";
@@ -22,5 +21,4 @@
 @import "components/footer";
 
 // Components
-@import "components/forms";
-@import "components/social-share";
+// @import "components/";

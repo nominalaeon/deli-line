@@ -24,15 +24,6 @@ main {
  */
 html {
   font-size: $font-size-base;
-  @media (max-width: $screen-sm-max) {
-    font-size: .9rem;
-  }
-  @media (max-width: $screen-xs-max) {
-    font-size: .85rem;
-  }
-  @media (max-width: $screen-xs) {
-    font-size: .75rem;
-  }
 }
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
