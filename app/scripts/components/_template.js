@@ -3,11 +3,11 @@
 	 * $root is returned from FrenchDip
 	 * $root represents a single instance of the class declared at bottom
 	 */
-	var DevComponentInstance = function ($root, options) {
+	var TemplateInstance = function ($root, options) {
 		this.$root 		= $root;
 		this.options 	= options;
 
-		console.trace('DevComponentInstance', this.$root);
+		console.trace('TemplateInstance', this.$root);
 		
 		// jQuery plug-in let's functions asynchronously load after specific content has loaded
 		this.$root.imagesLoaded($.proxy(this.init, this));
@@ -19,7 +19,7 @@
 		$(window).on("resize", _.debounce($.proxy(this.onResize, this), 200));
 	};
 
-	$.extend(DevComponentInstance.prototype, {
+	$.extend(TemplateInstance.prototype, {
 		init: function () {
 			console.trace('TestComponent Init', this.$root.data('test'));
 		},
@@ -46,5 +46,5 @@
 	var instanceOptions = {
 		dataAttr: 'test'
 	}
-	Site.DevComponent = Site.FrenchDip('.dev-component', instanceOptions, DevComponentInstance);
+	Site.Template = Site.FrenchDip('.dev-component', instanceOptions, TemplateInstance);
 })();

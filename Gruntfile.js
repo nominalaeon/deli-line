@@ -73,7 +73,7 @@ module.exports = function (grunt) {
         src: [
           '<%= root.app %>/scripts/utils/initializr.js',
           '<%= root.app %>/scripts/init.js',
-          '<%= root.app %>/scripts/utils/component-wrapper-factory.js',
+          '<%= root.app %>/scripts/utils/french-dip.js',
           '<%= root.app %>/scripts/utils/sizer.js'
         ],
         dest: '<%= root.app %>/assets/js/utils.js'

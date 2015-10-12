@@ -11,50 +11,54 @@
 		<meta name="description" content="{{description}}">
 		<meta name="keywords" content="{{keywords}}">
 
-    	<title>{{{title}}}</title>
+        <title>{{title}}</title>
 
 		<!-- Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
-    	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700' rel='stylesheet' type='text/css'>
 
 		<link href="{{relativePath}}assets/css/styles.css" rel="stylesheet"/>
 
-    	{{> favicon}}
+        {{> favicon}}
 	</head>
 
 	<body class="disable-transition-load">
 	    
-	    <header>
-	      {{> header}}
-	    </header>
+        <header>
+          {{> header}}
+        </header>
 
-	    <nav>
-	      {{> nav}}
-	    </nav>
+        <nav>
+          {{> nav}}
+        </nav>
 
-		{{> body}}
+        {{> body}}
 
-	    <footer>
-			{{> footer}}
-	    </footer>
-		
-    	<script src="vendor/modernizr/modernizr.js"></script>
-		<script src="vendor/jquery/dist/jquery.js"></script>
-		<script src="vendor/jquery.easing/js/jquery.easing.js"></script>
-		<script src="vendor/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-		<script src="vendor/eventEmitter/EventEmitter.js"></script>
-		<script src="vendor/eventie/eventie.js"></script>
-		<script src="vendor/hammerjs/hammer.js"></script>
-		<script src="vendor/imagesloaded/imagesloaded.js"></script>
-		<script src="vendor/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.min.js"></script>
-		<script src="vendor/lodash/lodash.js"></script>
-		<script src="vendor/verge/verge.js"></script>
+        <footer>
+    		{{> footer}}
+        </footer>
+    		
+        <!-- <script src="{{relativePath}}vendor/modernizr/js/modernizr.js"></script> -->
+        <script src="{{relativePath}}vendor/jquery/dist/jquery.js"></script>
+        <script src="{{relativePath}}vendor/jquery.easing/js/jquery.easing.js"></script>
+        <script src="{{relativePath}}vendor/eventEmitter/EventEmitter.js"></script>
+        <script src="{{relativePath}}vendor/eventie/eventie.js"></script>
+        <script src="{{relativePath}}vendor/hammerjs/hammer.js"></script>
+        <script src="{{relativePath}}vendor/imagesloaded/imagesloaded.js"></script>
+        <script src="{{relativePath}}vendor/lodash/lodash.js"></script>
+        <script src="{{relativePath}}vendor/verge/verge.js"></script>
 
-		<!-- Utility scripts -->
-		<script src="{{relativePath}}assets/js/utils.js"></script>
+        <!-- Framework -->
+        <!-- <script src="vendor/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script> -->
+        <!-- <script src="vendor/jqBootstrapValidation/dist/jqBootstrapValidation-1.3.7.min.js"></script> -->
+        <script src="{{relativePath}}vendor/foundation/js/foundation.js"></script>
 
-		<!-- Component scripts -->
-		<script src="{{relativePath}}assets/js/components.js"></script>
+        <!-- Utility scripts -->
+        <script src="{{relativePath}}assets/js/utils.js"></script>
+
+        <!-- Component scripts -->
+        <script src="{{relativePath}}assets/js/components.js"></script>
+
 	</body>
 </html>

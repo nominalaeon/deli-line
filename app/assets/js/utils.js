@@ -58,64 +58,106 @@
 
 Site.location = window.location;
 
-(function (window, undefined) {
-	var initSite = new Initializr(Site, 'Site');
-	var SiteComponent = _.bind(initSite.component, initSite);
+(function(window, undefined) {
+    var initSite = new Initializr(Site, 'Site');
+    var SiteComponent = _.bind(initSite.component, initSite);
 
-	$(document).ready(function () {
-    $.extend(Site.prototype, {
-  		$body: $('body'),
+    $(document).ready(function() {
 
-  		breakpoint: {
-  			xs: 480,
-  			sm: 768,
-  			md: 1024,
-  			lg: 1400
-  		},
+        $.extend(Site, {
+            $html: $('html'),
+            $body: $('body'),
 
-  		isBreakpoint: {
-  			Large:  	Site.$body.width() >= Site.breakpoints.md,
-  			Medium: 	Site.$body.width() < Site.breakpoints.md,
-  			Small:  	Site.$body.width() < Site.breakpoints.sm,
-  			XSmall: 	Site.$body.width() < Site.breakpoints.xs,
-  			Touch: 		$('html').hasClass('touch'),
-  			Tablet: 	Site.$body.width() < Site.breakpoints.sm || $('html').hasClass('touch'),
-  			Mobile: 	Site.$body.width() < Site.breakpoints.xs || $('html').hasClass('touch')
-  		},
+            breakpoint: {
+                xs: 480,
+                sm: 768,
+                md: 1024,
+                lg: 1400
+            },
 
-      getUrlParam: function (name) {
-        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-        var regexS = "[\\?&]" + name + "=([^&#]*)", 
-            regex = new RegExp(regexS),
-            results = regex.exec(Site.location.href);
-        if (results == null) {
-          return "";
-        } else {
-          return decodeURIComponent(results[1].replace(/\+/g, " "));
-        }
-      },
+            rightToLeft: $('html').attr('dir') === 'RTL'
+        });
 
-  		rightToLeft: $('html').attr('dir') === 'RTL'
+        $.extend(Site.prototype, {
+            isBreakpoint: function(size) {
+                var sizes = {
+                    large: this.$body.width() >= this.breakpoints.md,
+                    medium: this.$body.width() < this.breakpoints.md,
+                    small: this.$body.width() < this.breakpoints.sm,
+                    xSmall: this.$body.width() < this.breakpoints.xs,
+                    touch: this.$html.hasClass('touch'),
+                    tablet: this.$body.width() < this.breakpoints.sm || $('html').hasClass('touch'),
+                    mobile: this.$body.width() < this.breakpoints.xs || $('html').hasClass('touch')
+                };
+                return sizes[size];
+            },
+
+            getUrlParam: function(name) {
+                name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+                var regexS = "[\\?&]" + name + "=([^&#]*)",
+                    regex = new RegExp(regexS),
+                    results = regex.exec(Site.location.href);
+                if (results == null) {
+                    return "";
+                } else {
+                    return decodeURIComponent(results[1].replace(/\+/g, " "));
+                }
+            }
+        });
+
+        /*
+         * COMPONENTS
+         */
+        SiteComponent('Template');
+
+
+        /*
+         * UTILITY FUNCTIONS
+         */
+        Site.$body.removeClass("disable-transition-load"); // stops transitioned elements from loading in silly
+
+        /*
+         * LOG ERRORS
+         */
+        initSite.logErrors();
     });
+})(this);;/* globals jQuery, _ */
+(function ($, _, Site) {
+	/* 
+	 * Generates a standard init function for each component
+	 * Encapsulates component instances
+	 * Is ground-breaking.
+	 */
+	var FrenchDip = function (selector, defaultOptions, instanceObject) {
+		var parseInstanceOptions = function ($root) {
+			var $config = $root.find('> .component-config');
+			var instanceOptions = {};
+			
+			_.each(defaultOptions, function (optionValue, optionKey) {
+				var dataValue = $config.data(optionKey);
 
-		/*
-		 * COMPONENTS
-     */
-		SiteComponent('_template');
+				if (!_.isUndefined(dataValue)) {
+					instanceOptions[optionKey] = dataValue;
+				}
+			});
+			return instanceOptions;
+		};
 		
+		return {
+			init: function (siteOptions) {
+				siteOptions = _.extend({}, defaultOptions, siteOptions);
 
-    /*
-     * UTILITY FUNCTIONS
-     */
-    Site.$body.removeClass("disable-transition-load");
-    $('select.selectpicker').selectpicker();
+				$(selector).each(function () {
+					var $this = $(this);
+					var instanceOptions = _.extend({}, siteOptions, parseInstanceOptions($this));
+					new instanceObject($this, instanceOptions);
+				});
+			}
+		}
+	};
 
-    /*
-     * LOG ERRORS
-     */
-    initSite.logErrors();
-	});
-})(this);
+	Site.FrenchDip = FrenchDip;
+})(jQuery, _, Site);
 ;(function () {
   var Sizer = {
     setHeights: function ($elements, options) {

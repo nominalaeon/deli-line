@@ -8,12 +8,15 @@
     "normalize-css": "~3.0.2",
     "eventEmitter": "~4.2.11",
     "eventie": "~1.0.6",
+    "foundation": "~5.5.3",
     "hammerjs": "~2.0.4",
     "imagesloaded": "~3.1.8",
     "jqBootstrapValidation": "~1.3.7",
     "lodash": "~3.5.0",
     "slick": "*",
-    "verge": "ryanve/verge#~1.9.1"
+    "verge": "ryanve/verge#~1.9.1",
+    "bootstrap": "~3.3.5",
+    "bootstrap-sass": "~3.3.5"
   },
   "author": {
     "name": "Noah Rodenbeek",
@@ -27,6 +30,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "devDependencies": {}
+  ]
 }
