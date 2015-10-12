@@ -5,13 +5,16 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 <!-- MarkdownTOC -->
 
 - [Let's start](#lets-start)
-- [The Fixin's](#the-fixins)
-    - [Markup](#markup)
-    - [Style](#style)
-    - [Scripts](#scripts)
-- [The Chef](#the-chef)
-- [whoa whoa whoa ...FrenchDip.js?](#whoa-whoa-whoa-frenchdipjs)
-    - [Getting started with FrenchDip](#getting-started-with-frenchdip)
+    - [The Fixin's](#the-fixins)
+        - [Markup](#markup)
+        - [Style](#style)
+        - [Scripts](#scripts)
+    - [The Chef](#the-chef)
+    - [whoa whoa whoa ...FrenchDip.js?](#whoa-whoa-whoa-frenchdipjs)
+        - [Getting started with FrenchDip](#getting-started-with-frenchdip)
+    - [Using Assemble](#using-assemble)
+        - [Relative paths](#relative-paths)
+- [scripts loaded in page-layout.hbs rely on relative-path variable from page templates](#scripts-loaded-in-page-layouthbs-rely-on-relative-path-variable-from-page-templates)
 
 <!-- /MarkdownTOC -->
 
@@ -21,13 +24,9 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
     npm install
     bower install
 
-> Install NPM and Bower dependencies, now tie them into the front
-
-    grunt wiredep
-
 > Now start a server for some hot livereload on livereload action at localhost:8000
 
-    grunt serve
+`grunt serve` *or* `grunt`
 
 > When the site is ready to wrap, move the compiled/uglified/imagemin'ed files to the build directory
 
@@ -76,4 +75,10 @@ Every time you need to make a new component, you'll add a unique JavaScript file
 
 The SiteComponent Object is in charge of forEach'ing through the matches of your component's defined Selector. If none are on a page, the component isn't used. If one or more are present, FrenchDip will invoke a new instance of your component script per match.
 
-Doing this automatically confines the context of each script to each instance of the Selector. This is especially handy when tracking click, load, resize, or any other kind of Event, but it also streamlines utility, DOM-manipulation functionality.
+Doing this automatically confines the context of each script to each instance of the Selector. This is especially handy when tracking click, load, resize, or any other kind of Event, but it also streamlines utility, DOM-manipulation functionality
+
+## Using Assemble
+
+### Relative paths
+
+# scripts loaded in page-layout.hbs rely on relative-path variable from page templates
