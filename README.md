@@ -27,7 +27,8 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 
 * Assemble.io templating
 * HTML5
-* Bootstrap
+* Foundation (active)
+* Bootstrap (dormant)
 
 ### Style
 
