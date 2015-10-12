@@ -8,7 +8,7 @@
 
 		this.name = name;
 		this._errors = [];
-		
+
 		return this;
 	};
 
@@ -17,7 +17,7 @@
 			var initializr = this;
 			var namespace = initializr.namespace;
 			var component;
-			
+
 			if (!_.isUndefined(args)) {
 				if (!_.isArray(args)) {
 					args = [args];
@@ -47,7 +47,7 @@
 			} else {
 				console.log('%s Components successfully loaded.', initializr.name);
 			}
-			
+
 			errors = [];
 		}
 	});

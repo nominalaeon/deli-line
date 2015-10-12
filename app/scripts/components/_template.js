@@ -4,11 +4,11 @@
 	 * $root represents a single instance of the class declared at bottom
 	 */
 	var TemplateInstance = function ($root, options) {
-		this.$root 		= $root;
-		this.options 	= options;
+		this.$root = $root;
+		this.options = options;
 
 		console.trace('TemplateInstance', this.$root);
-		
+
 		// jQuery plug-in let's functions asynchronously load after specific content has loaded
 		this.$root.imagesLoaded($.proxy(this.init, this));
 
@@ -46,5 +46,5 @@
 	var instanceOptions = {
 		dataAttr: 'test'
 	}
-	Site.Template = Site.FrenchDip('.dev-component', instanceOptions, TemplateInstance);
+	Site.Template = Site.FrenchDip('.template', instanceOptions, TemplateInstance);
 })();

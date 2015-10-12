@@ -2,11 +2,11 @@ var Site = {};
 
 Site.location = window.location;
 
-(function(window, undefined) {
+(function (window, undefined) {
     var initSite = new Initializr(Site, 'Site');
     var SiteComponent = _.bind(initSite.component, initSite);
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         $.extend(Site, {
             $html: $('html'),
@@ -23,7 +23,7 @@ Site.location = window.location;
         });
 
         $.extend(Site.prototype, {
-            isBreakpoint: function(size) {
+            isBreakpoint: function (size) {
                 var sizes = {
                     large: this.$body.width() >= this.breakpoints.md,
                     medium: this.$body.width() < this.breakpoints.md,
@@ -36,7 +36,7 @@ Site.location = window.location;
                 return sizes[size];
             },
 
-            getUrlParam: function(name) {
+            getUrlParam: function (name) {
                 name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
                 var regexS = "[\\?&]" + name + "=([^&#]*)",
                     regex = new RegExp(regexS),
