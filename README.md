@@ -5,11 +5,11 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 <!-- MarkdownTOC -->
 
 - [Let's start](#lets-start)
+- [The Chef](#the-chef)
 - [The Fixin's](#the-fixins)
     - [Markup](#markup)
     - [Style](#style)
     - [Scripts](#scripts)
-- [The Chef](#the-chef)
 - [whoa whoa whoa ...FrenchDip.js?](#whoa-whoa-whoa-frenchdipjs)
     - [Getting started with FrenchDip](#getting-started-with-frenchdip)
 - [Using Assemble](#using-assemble)
@@ -33,6 +33,9 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 
 > Order is up
 
+## The Chef
+Grunt.
+
 ## The Fixin's
 
 ### Markup
@@ -52,9 +55,6 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 * Unabashed jQuery.
 * Modernizr, lodash, Verge, HammerJS, imagesLoaded
 * FrenchDip.js
-
-## The Chef
-Grunt.
 
 ## whoa whoa whoa ...FrenchDip.js?
 
