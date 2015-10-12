@@ -7,13 +7,8 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 - [Let's start](#lets-start)
 - [The Chef](#the-chef)
 - [The Fixin's](#the-fixins)
-    - [Markup](#markup)
-    - [Style](#style)
-    - [Scripts](#scripts)
 - [whoa whoa whoa ...FrenchDip.js?](#whoa-whoa-whoa-frenchdipjs)
-    - [Getting started with FrenchDip](#getting-started-with-frenchdip)
 - [Using Assemble](#using-assemble)
-    - [Relative paths](#relative-paths)
 
 <!-- /MarkdownTOC -->
 
