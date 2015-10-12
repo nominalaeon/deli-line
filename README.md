@@ -5,16 +5,15 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 <!-- MarkdownTOC -->
 
 - [Let's start](#lets-start)
-    - [The Fixin's](#the-fixins)
-        - [Markup](#markup)
-        - [Style](#style)
-        - [Scripts](#scripts)
-    - [The Chef](#the-chef)
-    - [whoa whoa whoa ...FrenchDip.js?](#whoa-whoa-whoa-frenchdipjs)
-        - [Getting started with FrenchDip](#getting-started-with-frenchdip)
-    - [Using Assemble](#using-assemble)
-        - [Relative paths](#relative-paths)
-- [scripts loaded in page-layout.hbs rely on relative-path variable from page templates](#scripts-loaded-in-page-layouthbs-rely-on-relative-path-variable-from-page-templates)
+- [The Fixin's](#the-fixins)
+    - [Markup](#markup)
+    - [Style](#style)
+    - [Scripts](#scripts)
+- [The Chef](#the-chef)
+- [whoa whoa whoa ...FrenchDip.js?](#whoa-whoa-whoa-frenchdipjs)
+    - [Getting started with FrenchDip](#getting-started-with-frenchdip)
+- [Using Assemble](#using-assemble)
+    - [Relative paths](#relative-paths)
 
 <!-- /MarkdownTOC -->
 
@@ -26,7 +25,7 @@ A smorgasbord of crusty component encapsulation and greasy page templating.
 
 > Now start a server for some hot livereload on livereload action at localhost:8000
 
-`grunt serve` *or* `grunt`
+`grunt` *or* `grunt serve`
 
 > When the site is ready to wrap, move the compiled/uglified/imagemin'ed files to the build directory
 
@@ -81,4 +80,13 @@ Doing this automatically confines the context of each script to each instance of
 
 ### Relative paths
 
-# scripts loaded in page-layout.hbs rely on relative-path variable from page templates
+Scripts and other site assets loaded in page-layout.hbs rely on relative-path variable from page templates.
+
+    <script src="{{relativePath}}assets/js/utils.js"></script>
+
+The relative-path variable is set at the top of the page template file.
+
+    ---
+    title: "Some child-of-a-child page"
+    relative-path: "../../"
+    ---
