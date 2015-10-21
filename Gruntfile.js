@@ -3,6 +3,7 @@
 module.exports = function(grunt) {
     // load all grunt tasks matching the `grunt-*` pattern
     require('load-grunt-tasks')(grunt);
+
     var helperPartial = require('handlebars-helper-partial');
 
     var rootConfig = {
@@ -92,7 +93,7 @@ module.exports = function(grunt) {
             server: {
                 options: {
                     host: '*',
-                    port: 8000,
+                    port: 1981,
                     base: '<%= root.app %>'
                 }
             }
@@ -147,25 +148,20 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            dev: {
+            assemble: {
+                files: ['<%= root.app %>/templates/**/*.hbs'],
+                tasks: ['assemble']
+            },
+            scss: {
                 files: [
-                    '<%= root.app %>/templates/**/*.hbs',
                     '<%= root.app %>/sass/**/*.scss',
-                    '<%= root.app %>/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/bootstrap-overrides.scss',
-                    '<%= root.app %>/scripts/**/*.js'
+                    '<%= root.app %>/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/bootstrap-overrides.scss'
                 ],
-                tasks: ['assemble', 'compass', 'concat'],
-                options: {
-                    livereload: true
-                }
-            }
-        },
-        wiredep: {
-            task: {
-                src: [
-                    '<%= root.templates %>/page-layout.hbs'
-                ],
-                ignorePath: /\.\.\//
+                tasks: ['compass']
+            },
+            scripts: {
+                files: ['<%= root.app %>/scripts/**/*.js'],
+                tasks: ['concat']
             }
         }
     });
