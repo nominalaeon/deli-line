@@ -1,7 +1,12 @@
 *.sublime-project
 *.sublime-workspace
 
+src/assets/css
+src/assets/js
+src/vendor
+
 dist
+
 node_modules
 
 .sass-cache
