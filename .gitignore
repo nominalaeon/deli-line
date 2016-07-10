@@ -1,9 +1,7 @@
 *.sublime-project
 *.sublime-workspace
 
-app/assets/
-app/vendor
-htdocs
+dist
 node_modules
 
 .sass-cache
