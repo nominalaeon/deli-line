@@ -1,6 +1,8 @@
 *.sublime-project
 *.sublime-workspace
 
+src/assets/css
+src/assets/js
 src/vendor
 
 dist
