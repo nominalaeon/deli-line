@@ -1,7 +1,10 @@
 *.sublime-project
 *.sublime-workspace
 
+src/vendor
+
 dist
+
 node_modules
 
 .sass-cache
