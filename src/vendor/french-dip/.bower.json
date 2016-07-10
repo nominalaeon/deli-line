@@ -1,0 +1,38 @@
+{
+  "name": "french-dip",
+  "description": "A flexible, light-weight module for creating custom components",
+  "authors": [
+    {
+      "name": "Noah Rodenbeek",
+      "email": "noah@drawnbymouse.com",
+      "homepage": "http://rodenbeek.com"
+    }
+  ],
+  "homepage": "https://github.com/nominalaeon/french-dip",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [],
+  "license": "MIT",
+  "main": "french-dip.js",
+  "moduleType": [
+    "globals"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nominalaeon/french-dip.git"
+  },
+  "_release": "24f8218ee2",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "24f8218ee26c62e80f518cfaec5aacfcbdd77712"
+  },
+  "_source": "https://github.com/nominalaeon/french-dip.git",
+  "_target": "*",
+  "_originalSource": "french-dip"
+}

@@ -1,7 +1,0 @@
-@mixin background-image($imagePath, $image) {
-  background-image: url($imagePath + $image);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  display: block;
-  text-indent: -9999px;
-}

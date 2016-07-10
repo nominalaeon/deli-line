@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>FrenchDipJS</title>
+    <meta name="description" content="A flexible, light-weight module for creating custom components">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="demo/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="demo/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="demo/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="demo/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="demo/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="demo/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="demo/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="demo/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="demo/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="demo/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="demo/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="demo/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="demo/favicon/favicon-16x16.png">
+    <link rel="manifest" href="demo/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="demo/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- HighlightJS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/monokai.min.css">
+
+    <link rel="stylesheet" href="demo/styles/app.css">
+
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 ol-xs-12" style="padding: 0;">
+                    <h1 class="display-4 hidden-sm-down">FrenchDipJS</h1>
+                    <h1 class="display-1 hidden-md-up hidden-xs-down">FrenchDipJS</h1>
+                    <h1 class="hidden-sm-up">FrenchDipJS</h1>
+
+                    <p class="lead">A flexible, light-weight module for creating custom components</p>
+                    
+                    <p>
+                        <a class="btn btn-primary-outline btn-sm"
+                        href="https://github.com/nominalaeon/french-dip/archive/develop.zip"
+                        role="button">Download</a>
+                        <a class="btn btn-primary btn-sm"
+                        href="https://github.com/nominalaeon/french-dip"
+                        role="button">View on Github</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-xs-12" style="padding: 0; overflow-x: auto;">
+
+                <p class="lead">Not every project needs the full arsenal of a front-end framework.</p>
+
+                <h2 id="what">Why FrenchDip</h2>
+
+                <p class="hidden-xs-down"><i>Performance</i> can suffer from loading all of those unused bits of JavaScript.<br/>
+                <i>Development</i> can slow from steep learning curves.</p>
+
+                <p>A project that<br/>
+                -&nbsp;has little dynamic content to display <i>OR</i><br/>
+                -&nbsp;has a back-end templating solution <span class="hidden-sm-down">(PHP, JavaServer Pages, ASP.NET, etc.)</span><br/>
+                may be biting off more front-end framework than it will ever need to chew.</p>
+
+                <p>Chances are a front-end framework is being loaded simply to offer means to add custom functionality. This is where FrenchDipJS shines like a freshly baked baguette.</p>
+
+                <h2 id="what">What FrenchDip</h2>
+
+                <p>FrenchDip is a component wrapper that ties JavaScript classes defined in your project to instances of assigned DOM elements. This allows you to basically build your own framework.</p>
+
+                <h2 id="how">How FrenchDip</h2>
+
+                <div class="container" style="padding: 0;">
+                    <div class="row" style="padding: 0;">
+
+                        <div class="example col-xs-12">
+                            <p>Displays two different numbers</p>
+                            <div class="your-class-name"
+                                data-frenchdip="YourClass"></div>
+                            <div class="your-class-name"
+                                data-frenchdip="YourClass"></div>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12" style="padding: 0; overflow-x: auto;">
+                            <p><b>HTML</b><br/>
+                            Use the "data-frenchdip" attribute to request the JavaScript Class that needs to be invoked for an element.</p>
+<pre><code class="html">&lt;p>Displays two different numbers&lt;/p>
+
+&lt;div class="your-class-name"
+    data-frenchdip="YourClass">&lt;/div>
+
+&lt;div class="your-class-name"
+    data-frenchdip="YourClass">&lt;/div></code></pre>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12" style="padding-right: 0; overflow-x: auto;">
+                            <p><b>JavaScript</b><br/>
+                            Create a JavaScript Class and register it with FrenchDip, provide the Class itself and then its name as a string.</p>
+<pre><code class="javascript">function YourClass() {
+    // this.root - node tied to an instance
+    // this.options - node's data-attr values
+    this.root.innerHTML = Math.random();
+}
+
+FrenchDip.register(YourClass, 'YourClass');
+</code></pre>
+                        </div>
+
+                        <p>FrenchDipJS collects registered DOM elements, forEach's through them, and invokes a new instance of the requested Class for each one.</p>
+
+                        <p><b>If the name property is set on a registered component, the string form isn’t required as a second argument for FrenchDip.register(YourClass). If the name property is not set, FrenchDip requires the name as a string FrenchDip.register(YourClass, 'YourClass').</b></p>
+                    </div>
+                </div>
+
+                <h2 id="usage">Install</h2>
+
+                <p>Manual install <a href="https://github.com/nominalaeon/french-dip/archive/develop.zip">from GitHub</a></p>
+
+                <p>Bower install: <code class="comment">bower install french-dip --save</code></p>
+
+                <h2 id="setup">Setup</h2>
+
+                <p>Be sure FrenchDip loads before your app's JavaScript, otherwise it can get read in anywhere in your document. Head, body, below the footer, it's all good.</p>
+
+                <pre><code class="html">&lt;!-- French Dip -->
+&lt;script src="french-dip/french-dip.js">&lt;/script>
+
+&lt;!-- App JS -->
+&lt;script src="scripts/app.js">&lt;/script></code></pre>
+            
+            </div>
+        </div>
+    </div>
+
+    <!--====================================
+    =            Usage Examples            =
+    =====================================-->
+
+    <div class="demo-wrapper container">
+
+        <h2 id="usage-examples">Usage Examples</h2>
+
+        <!-- vanilla JavaScript -->
+        
+        <h3>Examples with vanilla JavaScript</h3>
+
+        <div class="row">
+
+            <div class="demo demo--js media col-lg-6 col-xs-12"
+                data-frenchdip="DemoJS"
+                data-heading="nananana Batman"
+                data-new-src="demo/images/batman.png"
+                data-interval="3000">
+                <div class="media-left">
+                    <img src="demo/images/bruce-wayne.png"/>
+                </div>
+                <div class="media-body">
+                    <p><b class="heading media-heading">Bruce Wayne</b></p>
+                    <p><small>...for 3 seconds anyway</small></p>
+
+<pre><code>&lt;div class="demo--js"
+    data-frenchdip="DemoJS"
+    data-heading="nananana Batman"
+    data-new-src="batman.png"
+    data-interval="3000">
+    &lt;img src="bruce-wayne.png"/>
+    &lt;p class="heading">Bruce Wayne&lt;/p>
+&lt;/div></code></pre>
+                </div>
+            </div>
+
+            <div class="demo demo--js media col-lg-6 col-xs-12"
+                data-frenchdip="DemoJS"
+                data-heading="Batman Beyond"
+                data-new-src="demo/images/batman-beyond.png">
+                <div class="media-left">
+                    <img src="demo/images/bruce-wayne.png"/>
+                </div>
+                <div class="media-body">
+                    <p><b class="heading media-heading">Bruce Wayne</b></p>
+                    <p><small>Changes once</small></p>
+
+<pre><code>&lt;div class="demo--js"
+    data-frenchdip="DemoJS"
+    data-heading="Batman Beyond"
+    data-new-src="batman-beyond.png">
+
+    &lt;img src="bruce-wayne.png"/>
+    &lt;p class="heading">Bruce Wayne&lt;/p>
+&lt;/div></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="demo demo--code col-xs-12">
+
+<pre><code>/** JavaScript Class pattern */
+
+function DemoJS() {
+    var heading = this.root.querySelectorAll('h4')[0],
+        img = this.root.querySelectorAll('img')[0],
+        newHead = this.options.heading,
+        newSrc = this.options.newSrc,
+        oldHead, oldSrc;
+
+    if (this.options.interval) {
+        runInterval(this.options.interval);
+    } else {
+        runTimeout();
+    }
+
+    function runInterval(interval) {
+        setInterval(swapAssets, interval);
+    }
+    function runTimeout() {
+        setTimeout(swapAssets, 1000);
+    }
+    function swapAssets() {
+        oldHead = heading.innerHTML;
+        oldSrc = img.getAttribute('src');
+        heading.innerHTML = newHead;
+        img.setAttribute('src', newSrc);
+        newHead = oldHead;
+        newSrc = oldSrc;
+    }
+}
+
+/** Register Class with FrenchDipJS */
+FrenchDip.register(DemoJS, 'DemoJS');</code></pre>
+
+            </div>
+        </div>
+
+        <!-- ES2015 -->
+        
+        <h3>Examples with ES2015</h3>
+
+        <div class="row">
+
+            <div class="demo demo--es62015 media col-lg-6 col-xs-12"
+                data-frenchdip="DemoES2015"
+                data-heading="Batman"
+                data-new-src="demo/images/batman.png">
+                <div class="media-left">
+                    <img src="demo/images/bruce-wayne.png"/>
+                </div>
+                <div class="media-body">
+                    <p><b class="heading media-heading">Bruce Wayne</b></p>
+                    <p><small>Changes once</small></p>
+
+<pre><code>&lt;div class="demo--es62015"
+    data-frenchdip="DemoES2015"
+    data-heading="Batman"
+    data-new-src="batman.png">
+    &lt;img src="bruce-wayne.png"/>
+    &lt;p class="heading">Bruce Wayne&lt;/p>
+&lt;/div></code></pre>
+                </div>
+            </div>
+
+            <div class="demo demo--es62015 media col-lg-6 col-xs-12"
+                data-frenchdip="DemoES2015"
+                data-heading="Batman"
+                data-new-src="demo/images/fireproof.png">
+                <div class="media-left">
+                    <img src="demo/images/bruce-wayne.png"/>
+                </div>
+                <div class="media-body">
+                    <p><b class="heading media-heading">Bruce Wayne</b></p>
+                    <p><small>Changes once</small></p>
+
+<pre><code>&lt;div class="demo--es62015"
+    data-frenchdip="DemoES2015"
+    data-heading="Batman"
+    data-new-src="fireproof.png">
+    &lt;img src="bruce-wayne.png"/>
+    &lt;p class="heading">Bruce Wayne&lt;/p>
+&lt;/div></code></pre>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="demo demo--code col-xs-12">
+
+<pre><code>/** ES2015 Class */
+class DemoES2015 {
+    constructor() {
+        this.heading = this.root.querySelectorAll('.heading')[0];
+        this.img = this.root.querySelectorAll('img')[0];
+        this.options = this.options;
+
+        setTimeout(() => {
+            this.swapAssets();
+        }, 1000);
+    }
+
+    swapAssets() {
+        this.heading.innerHTML = this.options.heading;
+        this.img.setAttribute('src', this.options.newSrc);
+    }
+}
+
+/** Register Class with FrenchDipJS */
+FrenchDip.register(DemoES2015, 'DemoES2015');</code></pre>
+
+            </div>
+        </div>
+
+        <!-- jQuery -->
+
+        <h3>Examples with jQuery</h3>
+
+        <div class="row">
+
+            <div class="demo demo--clickable demo--jquery media col-lg-6 col-xs-12"
+                data-frenchdip="DemoJQ"
+                data-new-src="demo/images/batman.png">
+                <div class="media-left">
+                    <img src="demo/images/bruce-wayne.png"/>
+                </div>
+                <div class="media-body">
+                    <p><b class="heading media-heading">Bruce Wayne</b></p>
+                    <p><small>For a dark knight, click here!</small></p>
+
+<pre><code>&lt;div class="demo--jquery"
+    data-frenchdip="DemoJQ"
+    data-new-src="demo/images/batman.png">
+    &lt;img src="bruce-wayne.png"/>
+    &lt;p class="heading">Bruce Wayne&lt;/p>
+&lt;/div></code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="demo demo--code col-xs-12">
+
+<pre><code>/** JQuery */
+
+var DemoJQ = DemoJQ;
+
+$.extend(DemoJQ.prototype, {
+    heading: 'Batman via $.onClick'
+});
+
+/** Register Class with FrenchDipJS */
+FrenchDip.register(DemoJQ, 'DemoJQ'); // Register DemoJQ Class with FrenchDip
+
+function DemoJQ() {
+    this.$root = $(this.root);
+    this.$heading = $(this.$root.find('.heading').get(0));
+    this.$img = $(this.$root.find('img').get(0));
+
+    this.$root.on('click', $.proxy(swapAssets, this));
+}
+
+function swapAssets() {
+    this.$heading.html(this.heading);
+    this.$img.attr('src', this.options.newSrc);
+    this.$root.off();
+}</code></pre>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.0.0.js"
+        integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="
+        crossorigin="anonymous"
+        type="text/javascript" charset="utf-8"></script>
+
+    <!-- HighlightJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"
+        type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        hljs.initHighlightingOnLoad();
+    </script>
+
+    <!-- French Dip -->
+    <script src="french-dip.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- App Components -->
+    <script src="demo/scripts/demo.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+</html>

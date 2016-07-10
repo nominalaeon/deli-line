@@ -1,34 +1,10 @@
 {
-  "name": "Deli Line",
-  "version": "0.0.1",
+  "name": "deli-line",
+  "version": "0.1.0",
   "dependencies": {
-    "bootstrap": "~3.3.5",
-    "bootstrap-sass": "~3.3.5",
-    "eventEmitter": "~4.2.11",
-    "eventie": "~1.0.6",
-    "foundation": "~5.5.3",
-    "hammerjs": "~2.0.4",
-    "imagesloaded": "~3.1.8",
-    "jqBootstrapValidation": "~1.3.7",
-    "jquery": "latest",
-    "jquery.easing": "~1.3.1",
-    "lodash": "~3.5.0",
-    "modernizr": "~2.8.3",
-    "normalize-css": "~3.0.2",
-    "slick": "*",
-    "verge": "ryanve/verge#~1.9.1"
-  },
-  "author": {
-    "name": "Noah Rodenbeek",
-    "email": "noah@drawnbymouse.com",
-    "url": "https://github.com/nominalaeon"
-  },
-  "license": "",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+    "french-dip": "*",
+    "imagesloaded": "^4.1.0",
+    "modernizr": "^3.3.1",
+    "normalize-css": "^4.1.1"
+  }
 }

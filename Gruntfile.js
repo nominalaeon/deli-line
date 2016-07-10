@@ -1,25 +1,17 @@
-/*global module:false*/
+module.exports = function (grunt) {
 
-module.exports = function(grunt) {
-    // load all grunt tasks matching the `grunt-*` pattern
     require('load-grunt-tasks')(grunt);
 
-    var helperPartial = require('handlebars-helper-partial');
-
     var rootConfig = {
-        app: 'app',
-        build: 'htdocs',
-        templates: 'app/templates'
+        src: 'src',
+        dist: 'dist',
+        templates: 'src/templates'
     };
 
-    // Project configuration.
     grunt.initConfig({
+
         root: rootConfig,
 
-        // Metadata
-        pkg: grunt.file.readJSON('package.json'),
-
-        // Tasks
         assemble: {
             options: {
                 expand: true,
@@ -29,7 +21,7 @@ module.exports = function(grunt) {
                     '<%= root.templates %>/components/*.hbs',
                     '<%= root.templates %>/partials/*.hbs'
                 ],
-                data: ['<%= root.app %>/data/*.yaml', '<%= root.app %>/data/*.json']
+                data: ['<%= root.src %>/data/*.yaml', '<%= root.src %>/data/*.json']
             },
             pages: {
                 options: {
@@ -37,9 +29,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= root.app %>/templates/pages',
+                    cwd: '<%= root.src %>/templates/pages',
                     src: ['**/*.hbs'],
-                    dest: '<%= root.app %>'
+                    dest: '<%= root.src %>'
                 }]
             }
         },
@@ -49,147 +41,147 @@ module.exports = function(grunt) {
                 browsers: ['last 2 versions', 'ie 10']
             },
             main: {
-                src: '<%= root.build %>/assets/css/styles.css',
-                dest: '<%= root.app %>/assets/css/styles.css'
+                src: '<%= root.src %>assets/css/app.css',
+                dest: '<%= root.src %>assets/css/app.css'
             }
         },
 
-        clean: [
-            '<%= root.app %>/*.html',
-            '<%= root.build %>'
-        ],
+        clean: {
+            dist: {
+                src: [
+                    '<%= root.dist %>'
+                ]
+            },
+            src: {
+                src: [
+                    '<%= root.src %>/assets/css',
+                    '<%= root.src %>/assets/js'
+                ]
+            }
+        },
 
         compass: {
-            dist: {
+            src: {
                 options: {
                     outputStyle: 'expanded',
-                    sassDir: '<%= root.app %>/sass',
-                    cssDir: '<%= root.app %>/assets/css'
+                    sassDir: '<%= root.src %>/scss',
+                    cssDir: '<%= root.src %>/assets/css'
                 }
             }
         },
 
         concat: {
-            options: {
-                separator: ';'
-            },
-            utils: {
+            src: {
                 src: [
-                    '<%= root.app %>/scripts/utils/initializr.js',
-                    '<%= root.app %>/scripts/init.js',
-                    '<%= root.app %>/scripts/utils/french-dip.js',
-                    '<%= root.app %>/scripts/utils/sizer.js'
+                    '<%= root.src %>/js/utils.js', // needs to be first
+                    '<%= root.src %>/js/app.js',
+                    '<%= root.src %>/js/**/*.js',
                 ],
-                dest: '<%= root.app %>/assets/js/utils.js'
-            },
-            components: {
-                src: [
-                    '<%= root.app %>/scripts/components/**/*.js'
-                ],
-                dest: '<%= root.app %>/assets/js/components.js'
+                dest: '<%= root.src %>/assets/js/app.js'
             }
         },
-        connect: {
-            server: {
-                options: {
-                    host: '*',
-                    port: 1981,
-                    base: '<%= root.app %>'
-                }
-            }
-        },
+
         copy: {
-            build: {
+            css: {
                 files: [{
                     expand: true,
-                    cwd: '<%= root.app %>',
+                    cwd: '<%= root.src %>/assets/css',
                     src: [
-                        'favicon*',
-                        '*.xml',
-                        'assets/images/**/*',
-                        'assets/css/**/*',
-                        'assets/fonts/**/*',
-                        'assets/documents/*.pdf',
-                        'vendor/**/*',
+                        '*.css',
+                        '**/*.css'
+                    ],
+                    dest: '<%= root.dist %>/assets/css'
+                }]
+            },
+            html: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= root.src %>',
+                    src: [
+                        '*.html',
                         '**/*.html'
                     ],
-                    dest: '<%= root.build %>'
+                    dest: '<%= root.dist %>'
                 }]
-            }
-        },
-        imagemin: {
-            dist: {
-                options: {
-                    optimizationLevel: 5
-                },
+            },
+            images: {
                 files: [{
                     expand: true,
-                    cwd: '<%= root.app %>/assets/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: '<%= root.build %>/assets/'
+                    cwd: '<%= root.src %>/assets/images',
+                    src: [
+                        '*',
+                        '**/*'
+                    ],
+                    dest: '<%= root.dist %>/assets/images'
                 }]
-            }
-        },
-        cssmin: {
-            '<%= root.build %>/assets/css/styles.css': '<%= root.app %>/assets/css/styles.css'
-        },
-        spell: {
-            files: ['src/app/data/*.yaml']
-        },
-        uglify: {
-            static_mappings: {
+            },
+            js: {
                 files: [{
-                    src: '<%= root.app %>/assets/js/utils.js',
-                    dest: '<%= root.build %>/assets/js/utils.js'
-                }, {
-                    src: '<%= root.app %>/assets/js/components.js',
-                    dest: '<%= root.build %>/assets/js/components.js'
+                    expand: true,
+                    cwd: '<%= root.src %>/assets/js',
+                    src: [
+                        '*.js',
+                        '**/*.js'
+                    ],
+                    dest: '<%= root.dist %>/assets/js'
+                }]
+            },
+            vendor: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= root.src %>/vendor',
+                    src: [
+                        '*.js',
+                        '**/*.js'
+                    ],
+                    dest: '<%= root.dist %>/vendor'
                 }]
             }
         },
+
         watch: {
-            assemble: {
-                files: ['<%= root.app %>/templates/**/*.hbs'],
-                tasks: ['assemble']
+            js: {
+                files: [
+                    '<%= root.src %>/js/*.js',
+                    '<%= root.src %>/js/**/*.js'
+                ],
+                tasks: ['concat:src']
             },
             scss: {
                 files: [
-                    '<%= root.app %>/sass/**/*.scss',
-                    '<%= root.app %>/vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/bootstrap-overrides.scss'
+                    '<%= root.src %>/scss/*.scss',
+                    '<%= root.src %>/scss/**/*.scss'
                 ],
-                tasks: ['compass']
-            },
-            scripts: {
-                files: ['<%= root.app %>/scripts/**/*.js'],
-                tasks: ['concat']
+                tasks: ['compass:src']
+            }
+        },
+
+        wiredep: {
+            target: {
+                src: [
+                    'src/index.html'
+                ]
             }
         }
     });
 
     grunt.registerTask('default', [
-        'assemble',
-        'compass',
-        'concat',
-        'connect:server',
+        'clean:src',
+        'wiredep',
+        'compass:src',
+        'autoprefixer',
+        'concat:src',
         'watch'
     ]);
 
-    grunt.registerTask('serve', [
-        'assemble',
-        'compass',
-        'concat',
-        'connect:server',
-        'watch'
+    grunt.registerTask('dist', [
+        'clean:src',
+        'clean:dist',
+        'wiredep',
+        'compass:src',
+        'autoprefixer',
+        'concat:src',
+        'copy'
     ]);
 
-    grunt.registerTask('build', [
-        'clean',
-        'assemble',
-        'compass',
-        'concat',
-        'uglify',
-        'cssmin',
-        'copy:build',
-        'imagemin'
-    ]);
 };

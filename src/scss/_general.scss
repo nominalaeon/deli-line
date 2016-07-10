@@ -1,0 +1,43 @@
+
+html {
+    background-color: #111;
+    color: #fff;
+    font-family: helvetica, Arial, sans-serif;
+    min-height: 100%;
+}
+
+html.loaded {
+    body {
+        overflow: visible;
+    }
+    img {
+        opacity: 1;
+    }
+    
+    .loaded__hidden {
+        display: none;
+    }
+    .loaded__visible {
+        display: block;
+    }
+    .loading-spinner {
+        opacity: 0;
+    }
+}
+.loaded__visible {
+    display: none;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+}
+body * {
+    box-sizing: border-box;
+}
+
+img {
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+    max-width: 100%;
+}

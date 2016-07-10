@@ -1,46 +1,36 @@
 {
-  "name": "deliLine",
-  "version": "0.0.0",
-  "description": "",
-  "license": "MIT",
-  "main": "app/index.js",
-  "repository": "https://github.com/nominalaeon/deli-line",
+  "name": "deli-line",
+  "version": "0.1.0",
+  "description": "Web project scaffold that promotes uninterrupted content loading.",
+  "homepage": "http://github.com/nominalaeon/deli-line",
+  "bugs": "http://github.com/nominalaeon/deli-line/issues",
   "author": {
     "name": "Noah Rodenbeek",
     "email": "noah@drawnbymouse.com",
-    "url": "rodenbeek.com"
+    "url": "https://github.com/nominalaeon"
   },
-  "scripts": {
-    "test": "mocha"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nominalaeon/deli-line.git"
   },
-  "files": [
-    "app"
+  "keywords": [],
+  "licenses": [
+    {
+      "type": "MIT"
+    }
   ],
-  "keywords": [
-    "frenchDip",
-    "frenchDipjs"
-  ],
+  "scripts": {},
   "dependencies": {},
   "devDependencies": {
-    "compass": "^0.1.1",
     "grunt": "~0.4.1",
-    "grunt-assemble": "^0.3.1",
-    "grunt-autoprefixer": "^3.0.0",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-compass": "^1.0.2",
-    "grunt-contrib-compress": "^0.13.0",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-cssmin": "~0.6.1",
-    "grunt-contrib-imagemin": "^0.3.0",
-    "grunt-contrib-jshint": "~0.6.3",
-    "grunt-contrib-sass": "git+https://github.com/gruntjs/grunt-contrib-sass.git#e85ee70ccb8839867172b57ca1378293291f8037",
-    "grunt-contrib-uglify": "~0.2.2",
-    "grunt-contrib-watch": "~0.5.2",
-    "grunt-spell": "^0.2.1",
-    "grunt-wiredep": "^2.0.0",
-    "handlebars-helper-partial": "^0.2.0",
-    "load-grunt-tasks": "~0.1.0"
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-wiredep": "^3.0.1",
+    "load-grunt-tasks": "^3.5.0"
   }
 }
